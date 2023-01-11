@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccbd816a07b206f971042295b899d1ba",
+    "content-hash": "e49ea77655cc54c0b6bce081f72724a9",
     "packages": [
+        {
+            "name": "brackets/craftable-installer",
+            "version": "dev-fix-std-error",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BRACKETS-by-TRIAD/craftable-installer.git",
+                "reference": "ecaac8cd0ebd5cb4aaa2b096b0833e5826e3cb1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BRACKETS-by-TRIAD/craftable-installer/zipball/ecaac8cd0ebd5cb4aaa2b096b0833e5826e3cb1d",
+                "reference": "ecaac8cd0ebd5cb4aaa2b096b0833e5826e3cb1d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "symfony/console": "~3.0|~4.0|~5.0|~6.0",
+                "symfony/process": "~3.0|~4.0|~5.0|~6.0"
+            },
+            "bin": [
+                "craftable"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brackets\\CraftableInstaller\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavol Perdík",
+                    "email": "pavol.perdik@brackets.sk"
+                },
+                {
+                    "name": "David Běhal",
+                    "email": "david.behal@brackets.sk"
+                }
+            ],
+            "description": "Craftable application installer.",
+            "keywords": [
+                "admin",
+                "craftable",
+                "crud"
+            ],
+            "support": {
+                "issues": "https://github.com/BRACKETS-by-TRIAD/craftable-installer/issues",
+                "source": "https://github.com/BRACKETS-by-TRIAD/craftable-installer/tree/fix-std-error"
+            },
+            "time": "2022-10-06T13:18:33+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.10.2",
