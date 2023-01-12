@@ -1,4 +1,4 @@
-#DO NOT SHIP
+# DO NOT SHIP
 
 ## SpaceLock
 SpaceLock is a website an educationnal project made by a team of student during the year 2023.
