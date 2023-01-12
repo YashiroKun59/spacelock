@@ -1,7 +1,7 @@
 # DO NOT SHIP
 
 ## SpaceLock
-SpaceLock is an educationnal project made by a team of student during the year 2023.
+SpaceLock is an educational project made by a team of students during the year 2023.
 
 ## Warning
 
