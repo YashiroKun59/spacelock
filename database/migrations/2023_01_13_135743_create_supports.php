@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('sent_at')->nullable();
             $table->boolean('from_manager');
             $table->integer('status');
-            $table->string('published_at')->nullable();
+            $table->date('published_at')->nullable();
             $table->boolean('enabled');
 
         });
