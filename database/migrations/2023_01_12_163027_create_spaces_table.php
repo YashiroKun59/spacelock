@@ -1,5 +1,5 @@
 <?php
-//Table Spaces 
+//Table Spaces
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('length');
             $table->integer('width');
             $table->integer('height');
-            $table->foreignId('site_id')->constrained('sites');
+            $table->foreignId('site_id')->constrained('spaces');
             $table->foreignId('spacetype_id')->constrained('spaces_types');
             $table->date('published_at')->nullable();
             $table->boolean('enabled');
