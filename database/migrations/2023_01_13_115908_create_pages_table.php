@@ -21,6 +21,10 @@ return new class extends Migration
             $table->text('content');
             $table->string('description',255);
             $table->string('keyword',255);
+            $table->boolean('enabled')->default(false);
+            $table->timestamps();
+
+
         });
     }
 

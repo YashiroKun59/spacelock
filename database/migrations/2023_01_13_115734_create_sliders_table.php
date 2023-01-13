@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('uri',255);
             $table->dateTime('start_ad');
             $table->dateTime('start_end');
+            $table->boolean('enabled')->default(false);
+            $table->timestamps();
+
+
         });
     }
 
