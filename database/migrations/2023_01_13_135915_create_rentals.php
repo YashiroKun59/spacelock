@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('end_at')->nullable();
             $table->integer('bill_period');
 	        $table->string('contract_url')->nullable();
+            $table->string('published_at')->nullable();
             $table->boolean('enabled');
 
         });
