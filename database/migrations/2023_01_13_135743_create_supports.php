@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('supports', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('number');
-            $table->text('message')->unique();
+            $table->text('message');
             $table->timestamp('sent_at')->nullable();
             $table->boolean('from_manager');
             $table->integer('status');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('enabled');
             $table->foreignId('manager_id')->constrained('customers');
             $table->foreignId('rental_id')->constrained('customers');
-
+            $table->timestamps();
         });
     }
 
