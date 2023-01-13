@@ -36,6 +36,7 @@ return new class extends Migration
             $table->date('data_at');
             $table->boolean('data_collection')->default(false);
             $table->date('published_at')->nullable();
+            $table->timestamps();
         });
     }
 
