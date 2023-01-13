@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text("description");
-            $table->boolean("enabled")->default(false);
             $table->date('published_at')->nullable();
             $table->boolean('enabled')->default(false);
             $table->timestamps();
