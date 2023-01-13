@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('height');
             $table->foreignId('site_id')->constrained('sites');
             $table->foreignId('spacetype_id')->constrained('spaces_types');
+            $table->date('published_at')->nullable();
             $table->boolean('enabled');
             $table->timestamps();
         });

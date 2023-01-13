@@ -19,6 +19,8 @@ return new class extends Migration
             $table->decimal('amount', $precision = 8, $scale = 2);
             $table->integer('rentals');
             $table->string('stripe_ok');
+            $table->date('published_at')->nullable();
+            $table->boolean('enabled');
             $table->timestamps();
         });
     }
