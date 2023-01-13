@@ -22,6 +22,8 @@ return new class extends Migration
 	        $table->string('contract_url')->nullable();
             $table->date('published_at')->nullable();
             $table->boolean('enabled');
+            $table->foreignId('customer_id')->constrained('customers');
+            $table->foreignId('space_id')->constrained('spaces');
 
         });
     }

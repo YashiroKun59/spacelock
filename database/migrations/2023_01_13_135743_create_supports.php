@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('status');
             $table->date('published_at')->nullable();
             $table->boolean('enabled');
+            $table->foreignId('manager_id')->constrained('customers');
+            $table->foreignId('rental_id')->constrained('customers');
 
         });
     }
