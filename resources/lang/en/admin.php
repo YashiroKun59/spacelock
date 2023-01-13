@@ -30,5 +30,20 @@ return [
         ],
     ],
 
+    'spaces-type' => [
+        'title' => 'Spacestypes',
+
+        'actions' => [
+            'index' => 'Spacestypes',
+            'create' => 'New Spacestype',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
