@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('options_spaces', function (Blueprint $table) {
             $table->integer('option_id');
             $table->integer('space_id');
+            $table->date('published_at')->nullable();
+            $table->boolean('enabled')->default(false);
             $table->timestamps();
             $table->foreign('option_id')->references('id')->on('options');
             $table->foreign('sapce_id')->references('id')->on('spaces');

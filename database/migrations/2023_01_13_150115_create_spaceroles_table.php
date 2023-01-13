@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('logo');
-            $table->boolean('enabled');
+            $table->date('published_at')->nullable();
+            $table->boolean('enabled')->default(false);
             $table->timestamps();
         });
     }
