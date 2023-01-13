@@ -35,6 +35,7 @@ return new class extends Migration
             $table->boolean('enabled')->default(false);
             $table->date('data_at');
             $table->boolean('data_collection')->default(false);
+            $table->date('published_at')->nullable();
         });
     }
 
