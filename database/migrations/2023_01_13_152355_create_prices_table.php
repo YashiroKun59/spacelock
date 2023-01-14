@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('end_date_at');
             $table->decimal('discount_percent', 15, 2);
             $table->boolean('enabled')->default(false);
-            $table->foreignId('id_space')->constrained('spaces');
+            $table->foreignId('space_id')->constrained('spaces');
             $table->date('published_at')->nullable();
             $table->timestamps();
         });
