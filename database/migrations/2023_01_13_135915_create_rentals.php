@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('enabled');
             $table->foreignId('customer_id')->constrained('customers');
             $table->foreignId('space_id')->constrained('spaces');
-
+            $table->timestamps();
         });
     }
     /**

@@ -14,13 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('options_spaces', function (Blueprint $table) {
-            $table->integer('option_id');
-            $table->integer('space_id');
             $table->date('published_at')->nullable();
             $table->boolean('enabled')->default(false);
+            $table->foreignID('option_id')->constrained('spaces');
+            $table->foreignID('space_id')->constrained('spaces');
             $table->timestamps();
-            $table->foreign('option_id')->references('id')->on('options');
-            $table->foreign('sapce_id')->references('id')->on('spaces');
         });
     }
 
