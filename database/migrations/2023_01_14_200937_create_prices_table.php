@@ -16,8 +16,8 @@ class CreatePricesTable extends Migration
             $table->bigIncrements('id');
             $table->decimal('amount');
             $table->decimal('tax');
-            $table->timestamp('start_date_at');
-            $table->timestamp('end_date_at');
+            $table->timestamp('start_date_at')->nullable();
+            $table->timestamp('end_date_at')->nullable();
             $table->decimal('discount_percent');
             $table->boolean('enabled');
             $table->timestamps();

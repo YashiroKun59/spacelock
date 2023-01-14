@@ -19,8 +19,8 @@ class CreateSlidersTable extends Migration
             $table->string('media');
             $table->string('uri');
             $table->unsignedTinyInteger('timelaps');
-            $table->timestamp('start_at');
-            $table->timestamp('end_at');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->boolean('enabled');
             $table->timestamps();
         });

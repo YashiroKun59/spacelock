@@ -23,11 +23,11 @@ class CreateCustomersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('reset_password_token');
-            $table->timestamp('reset_password_send_at');
-            $table->timestamp('remember_create_at');
+            $table->timestamp('reset_password_send_at')->nullable();
+            $table->timestamp('remember_create_at')->nullable();
             $table->unsignedInteger('signing_count');
-            $table->timestamp('current_singing_at');
-            $table->timestamp('last_signing_at');
+            $table->timestamp('current_singing_at')->nullable();
+            $table->timestamp('last_signing_at')->nullable();
             $table->string('current_signing_ip');
             $table->string('last_signing_ip');
             $table->string('comment');

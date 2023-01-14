@@ -21,10 +21,8 @@ class CreateSpacesTable extends Migration
             $table->unsignedInteger('width');
             $table->unsignedInteger('height');
             $table->boolean('enabled');
-            $table->unsignedInteger('site_id');
-            $table->foreign('site_id')->references('id')->on('sites');
-            $table->unsigneInteger('spacetype');
-            $table->foreign('spacetype')->references('id')->on('spacetypes');
+            $table->foreignID('site_id')->constrained('sites');
+            $table->foreignID('spacetype_id')->constrained('spacetypes');
             $table->timestamps();
         });
     }

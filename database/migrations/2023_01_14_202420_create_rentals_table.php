@@ -14,15 +14,13 @@ class CreateRentalsTable extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamp('start_at');
-            $table->timestamp('end_at');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->unsignedInteger('bill_period');
             $table->string('contrat_url');
             $table->boolean('enabled');
-            $table->unsignedInteger('customer_id');
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->unsignedInteger('space_id');
-            $table->foreign('space_id')->references('id')->on('spaces');
+            $table->foreignID('customer_id')->constrained('customers');
+            $table->foreignID('space_id')->constrained('spaces');
             $table->timestamps();
         });
     }

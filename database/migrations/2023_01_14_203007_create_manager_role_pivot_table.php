@@ -13,10 +13,8 @@ class CreateManagerRolePivotTable extends Migration
     public function up()
     {
         Schema::create('manager_role', function (Blueprint $table) {
-            $table->unsignedBigInteger('manager_id')->index();
-            $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
-            $table->unsignedBigInteger('role_id')->index();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreignID('manager_id')->constrained('managers')->onDelete('cascade');
+            $table->foreignID('role_id')->constrained('roles')->onDelete('cascade');
             $table->primary(['manager_id', 'role_id']);
         });
     }

@@ -14,11 +14,10 @@ class CreatePayementsTable extends Migration
     {
         Schema::create('payements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamp('deadline');
+            $table->timestamp('deadline')->nullable();
             $table->decimal('amount');
             $table->string('stripe_ok');
-            $table->unsignedInteger('rental_id');
-            $table->foreign('rental_id')->references('id')->on('rentals');
+            $table->foreignID('rental_id')->constrained('rentals');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateSitesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->float('lat');
-            $table-> float('lon');
+            $table->float('lon');
             $table->string('description');
             $table->string('phone');
             $table->string('email');
@@ -25,8 +25,7 @@ class CreateSitesTable extends Migration
             $table->string('city');
             $table->string ('picture');
             $table->boolean('enabled');
-            $table->unsignedInteger('manager_id');
-            $table->foreign('manager_id')->references('id')->on('managers');
+            $table->foreignID('manager_id')->constrained('managers');
             $table->timestamps();
         });
     }
