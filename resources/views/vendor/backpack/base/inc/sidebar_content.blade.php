@@ -15,3 +15,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('rentals') }}"><i class="nav-icon la la-th-list"></i> Rentals</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('payements') }}"><i class="nav-icon la la-th-list"></i> Payements</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('supports') }}"><i class="nav-icon la la-th-list"></i> Supports</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('configs') }}"><i class="nav-icon la la-th-list"></i> Configs</a></li>
