@@ -19,7 +19,6 @@ Route::group([
     Route::crud('pages', 'PagesCrudController');
     Route::crud('sliders', 'SlidersCrudController');
     Route::crud('logs', 'LogsCrudController');
-    Route::crud('config', 'ConfigCrudController');
     Route::crud('customers', 'CustomersCrudController');
     Route::crud('managers', 'ManagersCrudController');
     Route::crud('prices', 'PricesCrudController');
