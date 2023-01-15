@@ -10,8 +10,8 @@ echo "Done."
 # doing the base migration
 echo "3/4 running migrations :"
 pam=$({ echo "yes";}|php artisan migrate)
-pamerrorstr="INFO Nothing to migrate."
-pam=$(echo $pam | grep "Nothing")
+pamerrorstr="   INFO  Nothing to migrate.  "
+pam=$(echo "$pam" | grep "Nothing")
 if [ "$pam" = "$pamerrorstr" ]; then
     read -rep "Nothing happened, do you want to run a migrate:fresh ? (y/N) " -i "N" answer
     if [ "$answer" = "y" ];then
