@@ -9,7 +9,7 @@ cp .env.example .env
 echo "Done."
 # doing the base migration
 echo "3/4 running migrations :"
-pam=$(php artisan migrate)
+pam=$({ echo "yes";}|php artisan migrate)
 pamerrorstr="INFO Nothing to migrate."
 pam=$(echo $pam | grep "Nothing")
 if [ "$pam" = "$pamerrorstr" ]; then
