@@ -4,7 +4,6 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('pages') }}"><i class="nav-icon la la-th-list"></i> Pages</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('sliders') }}"><i class="nav-icon la la-th-list"></i> Sliders</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('logs') }}"><i class="nav-icon la la-th-list"></i> Logs</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('config') }}"><i class="nav-icon la la-th-list"></i> Configs</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('customers') }}"><i class="nav-icon la la-th-list"></i> Customers</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('managers') }}"><i class="nav-icon la la-th-list"></i> Managers</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('prices') }}"><i class="nav-icon la la-th-list"></i> Prices</a></li>
@@ -16,3 +15,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('rentals') }}"><i class="nav-icon la la-th-list"></i> Rentals</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('payements') }}"><i class="nav-icon la la-th-list"></i> Payements</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('supports') }}"><i class="nav-icon la la-th-list"></i> Supports</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('configs') }}"><i class="nav-icon la la-th-list"></i> Configs</a></li>

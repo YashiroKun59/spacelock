@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ConfigRequest;
+use App\Http\Requests\ConfigsRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ConfigCrudController
+ * Class ConfigsCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ConfigCrudController extends CrudController
+class ConfigsCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class ConfigCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Config::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/config');
-        CRUD::setEntityNameStrings('config', 'configs');
+        CRUD::setModel(\App\Models\Configs::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/configs');
+        CRUD::setEntityNameStrings('configs', 'configs');
     }
 
     /**
@@ -39,7 +39,18 @@ class ConfigCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
+        CRUD::column('app_name');
+        CRUD::column('app_url');
+        CRUD::column('app_mail');
+        CRUD::column('app_media');
+        CRUD::column('app_theme');
+        CRUD::column('app_analytics');
+        CRUD::column('app_stripe_token');
+        CRUD::column('app_stripe_secret');
+        CRUD::column('app_stripe_key');
+        CRUD::column('app_currency');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -56,9 +67,18 @@ class ConfigCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ConfigRequest::class);
+        CRUD::setValidation(ConfigsRequest::class);
 
-        
+        CRUD::field('app_name');
+        CRUD::field('app_url');
+        CRUD::field('app_mail');
+        CRUD::field('app_media');
+        CRUD::field('app_theme');
+        CRUD::field('app_analytics');
+        CRUD::field('app_stripe_token');
+        CRUD::field('app_stripe_secret');
+        CRUD::field('app_stripe_key');
+        CRUD::field('app_currency');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
