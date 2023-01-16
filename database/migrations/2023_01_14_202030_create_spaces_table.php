@@ -23,7 +23,7 @@ class CreateSpacesTable extends Migration
             $table->boolean('enabled');
             $table->foreignID('site_id')->constrained('sites');
             $table->foreignID('spacetype_id')->constrained('spacetypes');
-            $table->foreignId('price_id')->constrained('prices');
+            $table->foreignID('price_id')->constrained('prices');
             $table->timestamps();
         });
     }
