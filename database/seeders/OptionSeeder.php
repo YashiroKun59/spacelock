@@ -24,8 +24,8 @@ class OptionSeeder extends Seeder
             'enabled'=> true,
         ]);
         Option::factory()->create([
-            'name'=> 'electricité',
-            'description'=> 'electricité disponnible',
+            'name'=> 'éléctricité',
+            'description'=> 'éléctricité disponnible',
             'enabled'=> true,
         ]);
         Option::factory()->create([
