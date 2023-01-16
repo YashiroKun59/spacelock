@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 /**
  * @property integer $id
  * @property string $name
@@ -15,7 +17,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
  */
 class Option extends Model
 {
-    use CrudTrait;
+    use CrudTrait, HasFactory;
     /**
      * @var array
      */
