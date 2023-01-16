@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # setting up composer
 echo "1/6 Setting up the environment..."
-rm ./vendor -r
+rm ./vendor -r &> /dev/null
 echo "Done."
 # copying the .env.exemple file to .env
 echo "2/6 Copying env file..."
