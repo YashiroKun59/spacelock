@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
  * @property integer $site_id
  * @property integer $spacetype_id
+ * @property integer $price_id
  * @property string $nickname
  * @property string $description
  * @property string $picture
@@ -18,25 +20,26 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
- * @property Option[] $options
+ * @property OptionSpace[] $optionSpaces
  * @property Rental[] $rentals
- * @property Site $site
+ * @property Price $price
  * @property Spacetype $spacetype
+ * @property Site $site
  */
 class Space extends Model
 {
-    use CrudTrait;
+    use CrudTrait, HasFactory;
     /**
      * @var array
      */
-    protected $fillable = ['site_id', 'spacetype_id', 'nickname', 'description', 'picture', 'length', 'width', 'height', 'enabled', 'created_at', 'updated_at'];
+    protected $fillable = ['site_id', 'spacetype_id', 'price_id', 'nickname', 'description', 'picture', 'length', 'width', 'height', 'enabled', 'created_at', 'updated_at'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function options()
+    public function optionSpaces()
     {
-        return $this->belongsToMany('App\Models\Option');
+        return $this->hasMany('App\Models\OptionSpace');
     }
 
     /**
@@ -50,9 +53,9 @@ class Space extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function site()
+    public function price()
     {
-        return $this->belongsTo('App\Models\Site');
+        return $this->belongsTo('App\Models\Price');
     }
 
     /**
@@ -61,5 +64,13 @@ class Space extends Model
     public function spacetype()
     {
         return $this->belongsTo('App\Models\Spacetype');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function site()
+    {
+        return $this->belongsTo('App\Models\Site');
     }
 }

@@ -48,6 +48,7 @@ class SpacesCrudController extends CrudController
         CRUD::column('enabled');
         CRUD::column('site_id');
         CRUD::column('spacetype_id');
+        CRUD::column('price_id');
         CRUD::column('created_at');
         CRUD::column('updated_at');
 
@@ -77,6 +78,7 @@ class SpacesCrudController extends CrudController
         CRUD::field('enabled');
         CRUD::field('site_id');
         CRUD::field('spacetype_id');
+        CRUD::field('price_id');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

@@ -16,6 +16,7 @@ class CreateOptionSpacePivotTable extends Migration
             $table->foreignID('option_id')->constrained('options')->onDelete('cascade');
             $table->foreignID('space_id')->constrained('spaces')->onDelete('cascade');
             $table->primary(['option_id', 'space_id']);
+            $table->boolean('available')->default(false);
         });
     }
 
