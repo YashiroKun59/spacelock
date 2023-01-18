@@ -54,23 +54,35 @@
     {{-- How to add some JS to the field? --}}
     @loadOnce('bpFieldInitDummyFieldElement')
     <script>
-        
+
         function bpFieldInitDummyFieldElement(element) {
+            //init de la map
             var map = L.map('map').setView([50.666872, 4.42749], 7);
+            //init markers
+            var lat=parseFloat(document.getElementsByName("lat")[0].value);
+            var lon=parseFloat(document.getElementsByName("lon")[0].value);
+            var markers=[];
+            markers.push(L.marker([lat,lon]).addTo(map));
+            //ajout du layer à la map
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
+            //ajout event click sur la map
             map.on('click',onMapClick)
-            var markers=[];
+
+            //Cliquer sur map
             function onMapClick(e) {
+                //Suppresion elmt précent
                 markers.forEach(element => {
                     element._removeIcon();
 		            element._removeShadow();
                 });
                 markers=[];
+                //Ajout marker
                 markers.push(L.marker([e.latlng.lat,e.latlng.lng]).addTo(map));
                 console.log(markers);
+                //Ajout au formulaire
                 document.getElementsByName("lat")[0].value=e.latlng.lat;
                 document.getElementsByName("lon")[0].value=e.latlng.lng;
         }
