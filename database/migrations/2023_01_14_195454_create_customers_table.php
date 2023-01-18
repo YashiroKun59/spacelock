@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username')->unique();
+            $table->string('uuid')->unique();
             $table->string('lastname');
             $table->string('firstname');
             $table->string('address');
@@ -34,6 +34,10 @@ class CreateCustomersTable extends Migration
             $table->string('comment');
             $table->boolean('data_collection');
             $table->boolean('enabled');
+            $table->string('stripe_id')->unique()->nullable();
+            $table->string('pm_type')->unique();
+            $table->string('pm_last_four', 4)->nullable();
+            $table->timestamp('trial_ends_at')->nullable();
             $table->timestamps();
         });
     }
