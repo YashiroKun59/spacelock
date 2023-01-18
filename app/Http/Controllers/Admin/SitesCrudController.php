@@ -53,6 +53,7 @@ class SitesCrudController extends CrudController
         CRUD::column('manager_id');
         CRUD::column('created_at');
         CRUD::column('updated_at');
+       
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -72,8 +73,6 @@ class SitesCrudController extends CrudController
         CRUD::setValidation(SitesRequest::class);
 
         CRUD::field('name');
-        CRUD::field('lat');
-        CRUD::field('lon');
         CRUD::field('description');
         CRUD::field('phone');
         CRUD::field('email');
@@ -83,6 +82,13 @@ class SitesCrudController extends CrudController
         CRUD::field('picture');
         CRUD::field('enabled');
         CRUD::field('manager_id');
+        CRUD::field('lat');
+        CRUD::field('lon');
+        $this->crud->addField([
+            'name'  => 'position',
+            'label' => 'posit',
+            'type'  => 'position',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
