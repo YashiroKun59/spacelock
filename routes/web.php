@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('payements', App\Http\Controllers\PayementController::class);
+Route::resource('spaces', App\Http\Controllers\SpaceController::class);
