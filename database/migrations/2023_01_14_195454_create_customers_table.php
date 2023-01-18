@@ -14,13 +14,14 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('username')->unique();
             $table->string('lastname');
             $table->string('firstname');
             $table->string('address');
             $table->string('zipcode');
             $table->string('city');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('reset_password_token');
             $table->timestamp('reset_password_send_at')->nullable();

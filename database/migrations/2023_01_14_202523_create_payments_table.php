@@ -12,7 +12,7 @@ class CreatePayementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payements', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamp('deadline')->nullable();
             $table->decimal('amount');
