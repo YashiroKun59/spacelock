@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('sliders',App\Http\Controllers\SliderController::class);
+Route::resource('pages',App\Http\Controllers\PageController::class);
+
+
+
