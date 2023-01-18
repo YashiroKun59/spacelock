@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::resource('sliders',App\Http\Controllers\SliderController::class);
 Route::resource('pages',App\Http\Controllers\PageController::class);
-
-
+Route::resource('customers', App\Http\Controllers\CustomerController::class); 
+Route::resource('payements', App\Http\Controllers\PayementController::class);
+Route::resource('spaces', App\Http\Controllers\SpaceController::class);
 
