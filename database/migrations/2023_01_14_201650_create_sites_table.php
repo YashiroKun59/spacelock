@@ -15,8 +15,8 @@ class CreateSitesTable extends Migration
         Schema::create('sites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->float('lat');
-            $table->float('lon');
+            $table->decimal('lat',17,14);
+            $table->decimal('lon',17,14);
             $table->string('description');
             $table->string('phone');
             $table->string('email');
