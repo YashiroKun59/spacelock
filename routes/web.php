@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::resource('customers', App\Http\Controllers\CustomerControlleur::class);   //route pour mon dump
 Route::resource('payements', App\Http\Controllers\PayementController::class);
 Route::resource('spaces', App\Http\Controllers\SpaceController::class);
+
