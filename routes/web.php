@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MyspaceController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(WelcomeController::class)->group(function(){
+        Route::get('/','index');
 });
 
 Route::controller(MyspaceController::class)->group(function () {
@@ -26,7 +28,7 @@ Route::controller(MyspaceController::class)->group(function () {
 
 Route::resource('sliders',App\Http\Controllers\SliderController::class);
 Route::resource('pages',App\Http\Controllers\PageController::class);
-Route::resource('customers', App\Http\Controllers\CustomerController::class); 
+Route::resource('customers', App\Http\Controllers\CustomerController::class);
 Route::resource('payements', App\Http\Controllers\PayementController::class);
 Route::resource('spaces', App\Http\Controllers\SpaceController::class);
 
