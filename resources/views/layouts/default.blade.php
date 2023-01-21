@@ -1,8 +1,8 @@
-   @include('elements.header' )
-   @include('elements.menu' )
-  
-   <div id = "container-fluid">
-           @yield('content' )
+   @include('elements.header')
+   @include('elements.menu')
+
+   <div class="container-fluid">
+        @yield('content')
    </div>
-   
-   @include('elements.footer' )
+
+   @include('elements.footer')
