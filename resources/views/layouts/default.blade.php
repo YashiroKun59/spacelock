@@ -1,7 +1,7 @@
    @include('elements.header')
    @include('elements.menu')
 
-   <div id="container-fluid">
+   <div class="container-fluid">
         @yield('content')
    </div>
 
