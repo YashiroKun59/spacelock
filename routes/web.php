@@ -20,6 +20,11 @@ Route::controller(WelcomeController::class)->group(function(){
         Route::get('/','index');
 });
 
+Route::get('home', function (){
+    return view('welcome');
+    /*return auth()->user();*/
+});
+
 Route::controller(MyspaceController::class)->group(function () {
     Route::get('/myspace/{user?}/infos', 'infos')->name('myspace.infos');
     Route::post('/updatecustomer', 'updatecustomer');
