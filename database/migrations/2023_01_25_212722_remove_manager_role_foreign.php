@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('sites', function (Blueprint $table) {
-            $table->dropForeign('sites_manager_id_foreign');
-            $table->dropColumn('manager_id');
+        Schema::table('manager_role', function (Blueprint $table) {
+            $table->dropForeign('manager_role_manager_id_foreign');
+            $table->dropForeign('manager_role_role_id_foreign');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('sites', function (Blueprint $table) {
+        Schema::table('manager_role', function (Blueprint $table) {
             //
         });
     }
