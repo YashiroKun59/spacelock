@@ -14,7 +14,11 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $data = Site::Where('enabled', 1)->get();
+        $data = Site::Select('id','lat','lon','adress','email','phone','description','city','zipcode','picture')->Where('enabled', 1)->get();
+        foreach ($data as $i) {
+            $i['adress'] = $i['adress'] . " " . $i['zipcode'] . " " . $i['city'];
+        }
+
         return response()->json($data);
 
     }
