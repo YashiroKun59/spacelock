@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,7 @@ class RentalFactory extends Factory
      */
     public function definition()
     {
-        $customer = DB::table('customers')->count('id');
+        $user = User::all()->where('role_id','=',3)->random()->id;
         $space = DB::table('spaces')->count('id');
         return [
             'start_at'=>fake()->dateTime(),
@@ -25,7 +26,7 @@ class RentalFactory extends Factory
             'bill_period'=>fake()->numberBetween(30,365),
             'contrat_url'=>fake()->url(),
             'enabled'=>fake()->boolean(90),
-            'customer_id'=>fake()->numberBetween(1,$customer),
+            'user_id'=>$user,
             'space_id'=>fake()->numberBetween(1,$space),
         ];
     }
