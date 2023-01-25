@@ -22,7 +22,7 @@ Route::controller(WelcomeController::class)->group(function(){
 
 Route::get('home', function (){
     return view('welcome');
-    /*return auth()->user();*/
+
 });
 
 Route::controller(MyspaceController::class)->group(function () {
