@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $manager_id
+ * @property integer $user_id
  * @property string $name
  * @property float $lat
  * @property float $lon
@@ -22,23 +22,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
- * @property Manager $manager
+ * @property User $user
  * @property Space[] $spaces
  */
 class Site extends Model
 {
-    use CrudTrait,HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */
-    protected $fillable = ['manager_id', 'name', 'lat', 'lon', 'description', 'phone', 'email', 'adress', 'zipcode', 'city', 'picture', 'enabled', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'name', 'lat', 'lon', 'description', 'phone', 'email', 'adress', 'zipcode', 'city', 'picture', 'enabled', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function manager()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Manager');
+        return $this->belongsTo('App\Models\User');
     }
 
     /**

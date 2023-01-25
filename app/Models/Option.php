@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
@@ -13,21 +13,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
- * @property Space[] $spaces
+ * @property OptionSpace[] $optionSpaces
  */
 class Option extends Model
 {
-    use CrudTrait, HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */
     protected $fillable = ['name', 'description', 'enabled', 'created_at', 'updated_at'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function spaces()
+    public function optionSpaces()
     {
-        return $this->belongsToMany('App\Models\Space');
+        return $this->hasMany('App\Models\OptionSpace');
     }
 }
