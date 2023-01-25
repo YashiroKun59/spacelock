@@ -15,7 +15,7 @@ class MyspaceController extends Controller
 
     public function home()
     {
-        # code...
+
     }
     public function infos($email = null)
     {
