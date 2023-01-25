@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePayementsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreatePayementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payements', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamp('deadline')->nullable();
             $table->decimal('amount');
@@ -29,6 +29,6 @@ class CreatePayementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payements');
+        Schema::dropIfExists('payments');
     }
 }
