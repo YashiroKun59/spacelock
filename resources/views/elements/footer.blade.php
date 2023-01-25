@@ -1,4 +1,4 @@
-<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pt-2 mt-2 border-top bottom-0">
+<footer class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-4 pt-2 mt-2 border-top bottom-0">
     <div class="col mb-6">
         <p class="text-muted text-center">&copy; Copyright <strong>EAFC PERUWELZ</strong> - {{\Carbon\Carbon::parse(date('Y'))->format('Y') }} <br> Numéro d'entreprise 450.456.125</p>
     </div>
