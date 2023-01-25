@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * @property integer $id
@@ -38,8 +41,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property Support[] $supports
  * @property Role $role
  */
-class User extends Model
+class User extends Authenticatable
 {
+    use HasFactory, CrudTrait,Notifiable;
     /**
      * @var array
      */
