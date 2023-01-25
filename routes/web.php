@@ -37,3 +37,7 @@ Route::resource('customers', App\Http\Controllers\CustomerController::class);
 Route::resource('payements', App\Http\Controllers\PayementController::class);
 Route::resource('spaces', App\Http\Controllers\SpaceController::class);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
