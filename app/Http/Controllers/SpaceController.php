@@ -13,7 +13,14 @@ class SpaceController extends Controller
     {
         $spacesOnSite = Space::Where('enabled', 1)->Where('site_id', $idSite);
 
-        return View();
+        return View('space/index',compact('spacesOnSite'));
 
+    }
+
+    public function show($id){
+        $space = Space::where('spaces.enabled', 1)->where('spaces.id', $id)
+        ->join('prices', 'spaces.id', '=', 'prices.id')
+        ->first();
+        return view('space/show',compact('space'));
     }
 }
