@@ -22,13 +22,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property OptionSpace[] $optionSpaces
  * @property Rental[] $rentals
- * @property Price $price
  * @property Spacetype $spacetype
  * @property Site $site
+ * @property Price $price
  */
 class Space extends Model
 {
-    use CrudTrait, HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */
@@ -53,14 +53,6 @@ class Space extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function price()
-    {
-        return $this->belongsTo('App\Models\Price');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function spacetype()
     {
         return $this->belongsTo('App\Models\Spacetype');
@@ -72,5 +64,13 @@ class Space extends Model
     public function site()
     {
         return $this->belongsTo('App\Models\Site');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function price()
+    {
+        return $this->belongsTo('App\Models\Price');
     }
 }
