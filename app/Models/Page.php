@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Page extends Model
 {
-    use CrudTrait,HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */

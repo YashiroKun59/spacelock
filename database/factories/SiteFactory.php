@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\DB;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Site>
@@ -17,7 +17,7 @@ class SiteFactory extends Factory
      */
     public function definition()
     {
-        $manager_id = DB::table('managers')->count('id');
+        $user = User::all()->where('role_id','=',2)->random()->id;
         return [
             'name'=>fake()->name(),
             'lat'=>fake()->latitude(),
@@ -30,7 +30,7 @@ class SiteFactory extends Factory
             'city'=>fake()->city(),
             'picture'=>fake()->imageUrl(640,480,null),
             'enabled'=>fake()->boolean(90),
-            'manager_id'=>fake()->numberBetween(1,$manager_id),
+            'user_id'=>$user,
         ];
     }
 }

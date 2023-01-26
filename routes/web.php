@@ -23,7 +23,7 @@ Route::controller(WelcomeController::class)->group(function(){
 
 Route::get('home', function (){
     return view('welcome');
-    /*return auth()->user();*/
+
 });
 
 Route::controller(MyspaceController::class)->group(function () {
@@ -42,4 +42,9 @@ Route::resource('pages',App\Http\Controllers\PageController::class);
 Route::resource('customers', App\Http\Controllers\CustomerController::class);
 Route::resource('payements', App\Http\Controllers\PayementController::class);
 Route::resource('spaces', App\Http\Controllers\SpaceController::class);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

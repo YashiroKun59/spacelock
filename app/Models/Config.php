@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Config extends Model
 {
-    use CrudTrait, HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */
