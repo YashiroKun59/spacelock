@@ -5,7 +5,7 @@
 @section('canonical'){{ URL::current() }}@endsection
 @section('content')
 
-<main id="main">
+<main class="main">
 
 <div class="container-fluid" style="width: 70%">
     <div class="progress" role="progressbar" aria-label="Animated striped" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
