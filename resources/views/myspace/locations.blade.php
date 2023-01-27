@@ -1,42 +1,42 @@
-{{-- composent nav --}}
-{{-- composent head --}}
-<head>
-    <title>meslocations</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-</head>
-
-<body>
+@extends('layouts.default')
+@section('title') Mes locations @endsection
+@section('description') Retrouvez ici vos locations @endsection
+@section('keywords') location rental spacelock @endsection
+@section('canonical'){{ URL::current() }}@endsection
+@section('content')
 
     <main>
         <div class="container">
-            <h1>Locations de {{$customerfirstname}} {{$customerlastname}}</h1>
+            <h1>Locations de {{Auth::user()->firstname}} {{Auth::user()->lastname}}</h1>
             <table class="table">
                 <th>Début</th>
                 <th>Fin</th>
                 <th>period</th>
                 <th>contrat</th>
                 <th>space</th>
+                @if (count($rentals) <= 0)
+                <tr>
+                    <td class="text-center" colspan="6">
+                        <p>
+                            Vous n'avez pas de location. Louez un Space grâce à <a href="/"> SpaceLock!</a>
+                        </p>
+                    </td>
+                </tr>
+                @else
+
                 @foreach ($rentals as $rental)
-                    <tr>
-                        <td>{{$rental->start_at}}</td>
-                        <td>{{$rental->end_at}}</td>
-                        <td>{{$rental->bill_period}}</td>
-                        <td><a href="{{$rental->contrat_url}}">Contrat</a></td>
-                        <td>{{$rental->space_id}}</td>
-                    </tr>
+                <tr>
+                    <td>{{$rental->start_at}}</td>
+                    <td>{{$rental->end_at}}</td>
+                    <td>{{$rental->bill_period}}</td>
+                    <td><a href="{{$rental->contrat_url}}">Contrat</a></td>
+                    <td>{{$rental->space_id}}</td>
+                </tr>
                 @endforeach
+                @endif
 
             </table>
         </div>
     </main>
 
-</body>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-</script>
-
-{{-- composent footer --}}
+@stop
