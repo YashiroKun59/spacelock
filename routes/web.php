@@ -18,26 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::controller(WelcomeController::class)->group(function(){
         Route::get('/','indexGuest');
 });
-
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home/locations', 'locations')->name('myspace.locations');
     Route::get('/home', 'index')->name('myspace');
     Route::post('/updatecustomer', 'update_customer')->name('myspace.updatecustomer');
 });
-Route::controller(SpaceController::class)->group(function(){
-    Route::get('/catalog/{SiteId}','index');
-    Route::get('/catalog/{SiteId}/{space?}','show');
-});
 
 Route::controller(SpaceController::class)->group(function(){
-    Route::get('/catalog','indexGuest')->name('catalog.index');
-    Route::get('/catalog/{space?}','showGuest')->name('catalog.show');
+    Route::get('/catalog/{SiteId?}','indexGuest')->name('catalog.index');
+    Route::get('/catalog/{SiteId}/{space?}','showGuest')->name('catalog.show');
 });
+
 Route::controller(SiteController::class)->group(function(){
     Route::get('/api/listsites.json', 'indexGuest')->name('sites.json');
 });

@@ -4,7 +4,6 @@
 @section('keywords')coucou location container  @endsection
 @section('canonical'){{ URL::current() }}@endsection
 @section('content')
-
    <main id="main">
     <div class="card-group ">
         @foreach ($spacesOnSite as &$space)
