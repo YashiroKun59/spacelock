@@ -4,7 +4,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyspaceController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
