@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyspaceController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SpaceController;
@@ -23,10 +24,10 @@ Route::controller(WelcomeController::class)->group(function(){
 });
 
 
-Route::controller(MyspaceController::class)->group(function () {
-    Route::get('/myspace/{user?}/infos', 'infos')->name('myspace.infos');
-    Route::post('/updatecustomer', 'updatecustomer');
-    Route::get('/myspace/{user?}/locations', 'locations')->name('myspace.locations');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home/locations', 'locations')->name('myspace.locations');
+    Route::get('/home', 'index')->name('myspace');
+    Route::post('/updatecustomer', 'update_customer')->name('myspace.updatecustomer');
 });
 
 Route::controller(SpaceController::class)->group(function(){
