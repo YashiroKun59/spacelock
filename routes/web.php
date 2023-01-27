@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyspaceController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\SpaceController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::controller(WelcomeController::class)->group(function(){
-        Route::get('/','index');
+        Route::get('/','indexGuest');
 });
 
-Route::get('home', function (){
-    return view('welcome');
-
-});
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home/locations', 'locations')->name('myspace.locations');
@@ -32,13 +30,12 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/updatecustomer', 'update_customer')->name('myspace.updatecustomer');
 });
 
-Route::resource('sliders',App\Http\Controllers\SliderController::class);
-Route::resource('pages',App\Http\Controllers\PageController::class);
-Route::resource('customers', App\Http\Controllers\CustomerController::class);
-Route::resource('payements', App\Http\Controllers\PayementController::class);
-Route::resource('spaces', App\Http\Controllers\SpaceController::class);
-
+Route::controller(SpaceController::class)->group(function(){
+    Route::get('/catalog','indexGuest')->name('catalog.index');
+    Route::get('/catalog/{space?}','showGuest')->name('catalog.show');
+});
+Route::controller(SiteController::class)->group(function(){
+    Route::get('/api/listsites.json', 'indexGuest')->name('sites.json');
+});
 
 Auth::routes();
-
-
