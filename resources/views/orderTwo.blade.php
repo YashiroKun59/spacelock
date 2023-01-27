@@ -1,5 +1,12 @@
-@include('elements.header');
-@include('elements.menu');
+@extends('layouts.default')
+@section('title') Taper ici le title de la page @endsection
+@section('description') Taper ici la description @endsection
+@section('keywords') Taper ici les mots-clés @endsection
+@section('canonical'){{ URL::current() }}@endsection
+@section('content')
+
+<main id="main">
+
 <div class="container-fluid" style="width: 70%">
     <div class="progress" role="progressbar" aria-label="Animated striped" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
@@ -97,4 +104,5 @@
                 </div>
             </div>
         </div>
-@include('elements.footer');
+    </main>
+@stop
