@@ -14,7 +14,7 @@ class SpaceController extends Controller
         if($idSite=null){
             $spacesOnSite = Space::where('enabled', 1)
             ->inRandomOrder()
-            ->limit(3)
+            ->limit(1)
             ->get();
             return View('space/index',compact('spacesOnSite'));
 
