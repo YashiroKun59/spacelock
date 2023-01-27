@@ -18,6 +18,3 @@ use App\Http\Controllers\SiteController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/Site', 'App\Http\Controllers\SiteController@index');
-

@@ -12,7 +12,7 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexGuest()
     {
         $data = Site::Select('id','lat','lon','adress','email','phone','description','city','zipcode','picture')->Where('enabled', 1)->get();
         foreach ($data as $i) {

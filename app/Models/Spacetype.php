@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Spacetype extends Model
 {
-    use CrudTrait,HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */

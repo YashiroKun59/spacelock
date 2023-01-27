@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Log extends Model
 {
-    use CrudTrait,HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */

@@ -8,11 +8,11 @@ use App\Models\Space;
 
 class WelcomeController extends Controller
 {
-    public function index()
+    public function indexGuest()
     {
         $spaces = Space::where('enabled', 1)
             ->inRandomOrder()
-            ->limit(3)
+            ->limit(5)
             ->get();
         return view('welcome',compact('spaces'));
     }

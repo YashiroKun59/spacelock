@@ -13,21 +13,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
- * @property Manager[] $managers
+ * @property User[] $users
  */
 class Role extends Model
 {
-    use CrudTrait,HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */
     protected $fillable = ['name', 'logo', 'enabled', 'created_at', 'updated_at'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function managers()
+    public function users()
     {
-        return $this->belongsToMany('App\Models\Manager');
+        return $this->hasMany('App\Models\User');
     }
 }

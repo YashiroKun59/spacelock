@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $manager_id
  * @property integer $rental_id
+ * @property integer $user_id
  * @property integer $number
  * @property string $message
  * @property string $send_at
@@ -19,15 +19,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  * @property Rental $rental
- * @property Manager $manager
+ * @property User $user
  */
 class Support extends Model
 {
-    use CrudTrait,HasFactory;
+    use HasFactory, CrudTrait;
     /**
      * @var array
      */
-    protected $fillable = ['manager_id', 'rental_id', 'number', 'message', 'send_at', 'status', 'from_manager', 'enabled', 'created_at', 'updated_at'];
+    protected $fillable = ['rental_id', 'user_id', 'number', 'message', 'send_at', 'status', 'from_manager', 'enabled', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -40,8 +40,8 @@ class Support extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function manager()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Manager');
+        return $this->belongsTo('App\Models\User');
     }
 }

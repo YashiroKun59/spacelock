@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\View;
 class SpaceController extends Controller
 {
     //
-    public function index($idSite=null){
+    public function indexGuest($idSite=null){
         if($idSite=null){
             $spacesOnSite = Space::where('enabled', 1)
             ->inRandomOrder()
@@ -24,9 +24,10 @@ class SpaceController extends Controller
         }
     }
 
-    public function show($id){
-         $space = Space::where('enabled', 1)->where('id', $id)
-            ->get();
-            return view('space/show',compact('space'));
-        }
+    public function showGuest($id){
+        $space = Space::where('spaces.enabled', 1)->where('spaces.id', $id)
+        ->join('prices', 'spaces.id', '=', 'prices.id')
+        ->first();
+        return view('space/show',compact('space'));
+    }
 }

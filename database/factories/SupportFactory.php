@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Rental;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 
@@ -17,16 +18,17 @@ class SupportFactory extends Factory
      */
     public function definition()
     {
-        $manager = DB::table('managers')->count('id');
-        $rental = DB::table('rentals')->count('id');
+        $rental = Rental::all()->random();
+        $user = $rental->user->id;
+        $rental = $rental->id;
         return [
             'number'=>fake()->numberBetween(1,999),
             'message'=>fake()->sentence(30),
             'status'=>fake()->numberBetween(0,3),
             'from_manager'=>fake()->boolean(50),
             'enabled'=>fake()->boolean(90),
-            'manager_id'=>fake()->numberBetween(1,$manager),
-            'rental_id'=>fake()->numberBetween(1,$rental),
+            'user_id'=>$user,
+            'rental_id'=>$rental,
         ];
     }
 }
