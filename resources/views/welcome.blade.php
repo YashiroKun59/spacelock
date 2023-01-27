@@ -78,3 +78,31 @@
 
    </main>
 @stop
+
+@section('javascript')
+    <script src="{{asset('template/leaflet/js/leaflet.js')}}"></script>
+    <script>
+        var osmLayer = L.tileLayer('http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            attribution: '&copy SpaceLock',
+            maxZoom: 18
+        });
+        var map = new L.Map('map', {
+            center: new L.LatLng(50.805935, 4.4659422),
+            zoom: 8,
+            layers: [osmLayer]
+        });
+        var markers = [];
+        $.getJSON({
+            url: '{{route('sites.json')}}'
+        }).done(function (site) {
+            var bounds = [];
+            for ( var i=0; i < site.length; ++i ) {
+                thisMarker = L.marker( [site[i].lat, site[i].lon]).addTo( map ).bindPopup("<h3>"+site[i].adress+"</h3><p>"+site[i].description+"</p>"+'<img src="'+site[i].picture+'" class="img-thumbnail" alt="...">');
+                bounds.push([site[i].lat,site[i].lon]);
+            }
+            map.fitBounds(bounds,{padding: [20,20]});
+        }).fail(function (xhr, status, error) {
+            alert("There is a problem with your route to your json data: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+        });
+    </script>
+@stop

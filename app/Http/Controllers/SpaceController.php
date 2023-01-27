@@ -9,7 +9,7 @@ use Illuminate\View\View;
 class SpaceController extends Controller
 {
     //
-    public function index($idSite=1)
+    public function indexGuest($idSite=1)
     {
         $spacesOnSite = Space::Where('enabled', 1)->Where('site_id', $idSite);
 
@@ -17,7 +17,7 @@ class SpaceController extends Controller
 
     }
 
-    public function show($id){
+    public function showGuest($id){
         $space = Space::where('spaces.enabled', 1)->where('spaces.id', $id)
         ->join('prices', 'spaces.id', '=', 'prices.id')
         ->first();

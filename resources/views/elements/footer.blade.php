@@ -46,19 +46,8 @@
   <script src="{{asset('template/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('template/bootstrap/js/custom.js')}}"></script>
   <script src="{{asset('template/prismjs/prism.js')}}"></script>
-  <script src="{{asset('template/leaflet/js/leaflet.js')}}"></script>
-  <script>
-    var osmLayer = L.tileLayer('http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-        attribution: '&copy SpaceLock',
-        maxZoom: 18
-    });
-    var map = new L.Map('map', {
-        center: new L.LatLng(50.805935, 4.4659422),
-        zoom: 8,
-        layers: [osmLayer]
-    });
-    var markers = [];
-</script>
+  @yield('javascript')
+
 </body>
 
 </html>
