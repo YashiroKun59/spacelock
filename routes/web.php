@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyspaceController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +26,10 @@ Route::get('home', function (){
 
 });
 
-Route::controller(MyspaceController::class)->group(function () {
-    Route::get('/myspace/{user?}/infos', 'infos')->name('myspace.infos');
-    Route::post('/updatecustomer', 'updatecustomer');
-    Route::get('/myspace/{user?}/locations', 'locations')->name('myspace.locations');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home/locations', 'locations')->name('myspace.locations');
+    Route::get('/home', 'index')->name('myspace');
+    Route::post('/updatecustomer', 'update_customer')->name('myspace.updatecustomer');
 });
 
 Route::resource('sliders',App\Http\Controllers\SliderController::class);
@@ -40,5 +41,4 @@ Route::resource('spaces', App\Http\Controllers\SpaceController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
