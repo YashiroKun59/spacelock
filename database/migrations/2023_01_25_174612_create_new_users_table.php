@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('lastname')->nullable();
+            $table->string('name')->nullable();
             $table->string('firstname')->nullable();
             $table->string('address')->nullable();
             $table->string('zipcode')->nullable();
@@ -39,7 +40,7 @@ return new class extends Migration
             $table->string('pm_type')->nullable();
             $table->string('pm_last_four', 4)->nullable();
             $table->timestamp('trial_ends_at')->nullable();
-            $table->foreignID('role_id')->constrained('roles');
+            $table->foreignID('role_id')->default(1)->constrained('roles');
             $table->timestamps();
     });
     }
