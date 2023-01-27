@@ -5,6 +5,20 @@
 @section('canonical'){{ URL::current() }}@endsection
 @section('content')
    <main id="main">
+    <div class="fluid">
+        <select class="form-select" aria-label="Default select example" id="siteSelect">
+            @foreach ( $allsite as $site )
+            <option value="{{$site->id}}" @if ($site->id==$currentSite)
+                selected
+            @else
+
+            @endif>{{$site->city}} </option>
+
+            @endforeach
+        </select>
+        <a href="/catalog" class="btn btn-primary" id="siteButton">Changer de Site</a>
+    </div>
+
     <div class="card-group ">
         @foreach ($spacesOnSite as &$space)
         <div class="col-md-4 ">
@@ -25,5 +39,9 @@
         @endforeach
       </div>
    </main>
-@stop
 
+
+@stop
+@section('javascript')
+<script src="{{ asset('/js/site.js') }}"></script>
+@stop
