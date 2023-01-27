@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MyspaceController;
+use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,10 +31,15 @@ Route::controller(MyspaceController::class)->group(function () {
     Route::post('/updatecustomer', 'updatecustomer');
     Route::get('/myspace/{user?}/locations', 'locations')->name('myspace.locations');
 });
+Route::controller(SpaceController::class)->group(function(){
+    Route::get('/catalog/{SiteId}','index');
+    Route::get('/catalog/{SiteId}/{space?}','show');
+});
 
 Route::resource('sliders',App\Http\Controllers\SliderController::class);
 Route::resource('pages',App\Http\Controllers\PageController::class);
 Route::resource('customers', App\Http\Controllers\CustomerController::class);
 Route::resource('payements', App\Http\Controllers\PayementController::class);
 Route::resource('spaces', App\Http\Controllers\SpaceController::class);
+
 
