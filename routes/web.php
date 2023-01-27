@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyspaceController;
+use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\SiteController;
@@ -28,6 +29,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/home/locations', 'locations')->name('myspace.locations');
     Route::get('/home', 'index')->name('myspace');
     Route::post('/updatecustomer', 'update_customer')->name('myspace.updatecustomer');
+});
+Route::controller(SpaceController::class)->group(function(){
+    Route::get('/catalog/{SiteId}','index');
+    Route::get('/catalog/{SiteId}/{space?}','show');
 });
 
 Route::controller(SpaceController::class)->group(function(){
