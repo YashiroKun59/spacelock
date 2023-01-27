@@ -5,7 +5,7 @@
 @section('canonical'){{ URL::current() }}@endsection
 @section('content')
 
-   <main id="main">
+   <main class="main">
     <div class="card-group ">
         @foreach ($spacesOnSite as &$space)
         <div class="col-md-4 ">
