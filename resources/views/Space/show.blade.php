@@ -7,7 +7,7 @@
 <?php
     $fmt = numfmt_create( 'fr_BE', NumberFormatter::CURRENCY );
 ?>
-   <main id="main">
+   <main class="main">
     <?php echo $space ?>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="formule1">
