@@ -5,7 +5,7 @@
 @section('canonical'){{ URL::current() }}@endsection
 @section('content')
 
-   <main id="main">
+   <main class="main">
 
    </main>
 @stop
