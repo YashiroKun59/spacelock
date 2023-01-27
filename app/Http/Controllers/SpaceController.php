@@ -10,9 +10,18 @@ use Illuminate\Support\Facades\View;
 class SpaceController extends Controller
 {
     //
-    public function index($idSite=1){
-        $spacesOnSite = Space::Where('enabled', 1)->Where('site_id', $idSite)->get();
-        return View('space/index',compact('spacesOnSite'));
+    public function index($idSite=null){
+        if($idSite=null){
+            $spacesOnSite = Space::where('enabled', 1)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+            return View('space/index',compact('spacesOnSite'));
+
+        }else{
+            $spacesOnSite = Space::Where('enabled', 1)->Where('site_id', $idSite)->get();
+            return View('space/index',compact('spacesOnSite'));
+        }
     }
 
     public function show($id){
