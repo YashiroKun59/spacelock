@@ -53,7 +53,7 @@ class SitesCrudController extends CrudController
         CRUD::column('manager_id');
         CRUD::column('created_at');
         CRUD::column('updated_at');
-       
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -79,7 +79,14 @@ class SitesCrudController extends CrudController
         CRUD::field('adress');
         CRUD::field('zipcode');
         CRUD::field('city');
-        CRUD::field('picture');
+        //CRUD::field('picture')->type('upload_multiple')->upload(true);
+        $this->crud->addField([
+            'name' => 'picture',
+            'label' => 'picture',
+            'type' => 'upload',
+            'upload' => true,
+            'disk'=>'public'
+        ]);
         CRUD::field('enabled');
         CRUD::field('manager_id');
         CRUD::field('lat');
@@ -89,6 +96,7 @@ class SitesCrudController extends CrudController
             'label' => 'posit',
             'type'  => 'position',
         ]);
+
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

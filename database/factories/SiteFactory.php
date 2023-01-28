@@ -28,7 +28,7 @@ class SiteFactory extends Factory
             'adress'=>fake()->address(),
             'zipcode'=>fake()->numberBetween(1000,9999),
             'city'=>fake()->city(),
-            'picture'=>fake()->imageUrl(640,480,null),
+            'picture'=>'/'.fake()->uuid().'.jpg',
             'enabled'=>fake()->boolean(90),
             'user_id'=>$user,
         ];

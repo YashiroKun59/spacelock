@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Log;
+use App\Models\Option;
+use App\Models\Optionspace;
 use App\Models\Page;
 use App\Models\Price;
 use App\Models\Rental;
@@ -49,9 +51,11 @@ class DatabaseSeeder extends Seeder
         error_log('Seeding Site done');
         Space::factory(50)->create();
         error_log('Seeding Space done');
-        Rental::factory(10)->create();
+        Rental::factory(40)->create();
         error_log('Seeding Rental done');
         Support::factory(100)->create();
         error_log('Seeding Support done');
+        Optionspace::factory(20)->create();
+        error_log('Seeding Option done');
     }
 }
