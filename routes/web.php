@@ -6,6 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Commander4Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,13 @@ Route::controller(SpaceController::class)->group(function(){
 Route::controller(SiteController::class)->group(function(){
     Route::get('/api/listsites.json', 'indexGuest')->name('sites.json');
 });
+
+Route::controller(Commander4Controller::class)->group(function () {
+    route::get('orderFour', 'index')->name('orderFour');
+    Route::post('orderFour/file', 'uploadFile')->name('orderFour.file');
+});
+
+Route::get('test', [Commander4Controller::class,'uploadFile']);
+Route::get('/contratpdf', 'App\Http\Controllers\Commander4Controller@createContratPDF')->name('contratpdf');
 
 Auth::routes();
