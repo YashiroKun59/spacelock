@@ -26,16 +26,16 @@ class SpaceController extends Controller
         ->where('enabled',1)
         ->get();
         $currentSite = $SiteId;
-        return view('catalog.index',compact('spacesOnSite','allsite','currentSite'));
+        return view('space/index',compact('spacesOnSite','allsite','currentSite'));
     }
 
     public function showGuest($SiteId, $id){
         $space = Space::where('spaces.enabled', 1)->where('spaces.id', $id)
-        ->prices
+        ->join('prices', 'spaces.price_id', '=', 'prices.id')
         ->first();
         $site = Site::Where('enabled', 1)->Where('id', $SiteId)->first();
         $options = Option::all();
-        $optionsExists = OptionSpace::where('space_id', $id)->where('available', 1);
-        return view('space/show',compact('space','site','options'));
+        $optionsExists = OptionSpace::where('space_id', $id)->where('available', 1)->get();
+        return view('space/show',compact('space','site','options','optionsExists'));
     }
 }

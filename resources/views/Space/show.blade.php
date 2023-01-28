@@ -76,7 +76,19 @@
                             @foreach ($options as $option)
                             <tr>
                                 <td>{{ $option->name }}</td>
-                                <td></td>
+                                <td>
+                                    <?php $exists = false ?>
+                                    @foreach ( $optionsExists as $oe )
+                                        @if ($oe->option_id === $option->id)
+                                            <?php $exists = true ?>
+                                        @endif
+                                    @endforeach
+                                    @if ($exists)
+                                        <span class="badge text-bg-success"><i class="bi bi-hand-thumbs-up-fill"></i></span>
+                                    @else
+                                        <span class="badge text-bg-danger"><i class="bi bi-hand-thumbs-down-fill"></i></i></span>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
