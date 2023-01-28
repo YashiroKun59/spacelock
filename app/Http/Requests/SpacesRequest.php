@@ -27,7 +27,7 @@ class SpacesRequest extends FormRequest
         return [
             'upload.*' => [
                 'nullable',
-                'max:2048', // file size in KB
+                'max:20480', // file size in KB
                 'mimetypes:jpeg,png,jpg', // allow only some mimetypes
             ],
         ];
