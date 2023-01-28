@@ -28,6 +28,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/home/locations', 'locations')->name('myspace.locations');
     Route::get('/home', 'index')->name('myspace');
     Route::post('/updatecustomer', 'update_customer')->name('myspace.updatecustomer');
+    Route::get('/contact', 'contact')->name('myspace.contact');
 });
 
 Route::controller(SpaceController::class)->group(function(){
