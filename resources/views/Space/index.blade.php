@@ -26,13 +26,19 @@
                   <h5 class="card-title">{{ $space->nickname }}</h5>
                   <p class="card-text">{{ $space->description }}</p>
                   <p class="card-text"><small class="text-muted">{{ $space->price->amount }} €</small></p>
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                      <a href="#" class="btn btn-primary">Info</a>
-                      <a href="#" class="btn btn-secondary">Louer</a>
-                  </div>
+                  <div class="row text-center">
+                    <div class="col"><a href="{{url("/catalog/{$site->id}/{$space->id}")}}" class="btn btn-primary" type="button">Info</a></div>
+                    <div class="col">
+                        <form class="" action="{{route("orderTwo")}}" method="post">
+                            @csrf
+                            <input type="hidden" name="spaceId" value="{{$space->id}}">
+                            <button class="btn btn-secondary">Louer</button>
+                        </form>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
+    </div>
 
         @endforeach
       </div>

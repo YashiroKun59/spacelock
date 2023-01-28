@@ -12,7 +12,6 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $space->nickname }}</li>
             </ol>
         </nav>
-        {{$space}}
         <div class="row">
             <div class="col-6 text-center"><img src="{{ $space->picture}}" class="img-fluid rounded-top" alt=""></div>
             <div class="col-6">
@@ -47,15 +46,26 @@
         <br>
         <div class="row">
             <div class="col-6 text-center">
-                <div>
-                    <a class="btn btn-primary" href="#" role="button">Commander</a>
-                    <a class="btn btn-primary" href="#" role="button">Contactez-nous</a>
+                <div class="row">
+                    <div class="col">
+                        <form class="" action="{{route("orderTwo")}}" method="post">
+                            @csrf
+                            <input type="hidden" name="spaceId" value="{{$space->id}}">
+                            <button class="btn btn-secondary">Louer</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form class="" action="{{route('myspace.contact')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="spaceId" value="{{$space->id}}">
+                            <button class="btn btn-primary">Contactez-nous</button>
+                        </form>
+                    </div>
                 </div>
                 <br>
                 <p>
                     Plus d'info <a href="tel:{{ $site->phone }}">{{ $site->phone }}</a><br>
-                    <A HREF="mailto:{{ $site->email }}">{{ $site->email }}</A>
-
+                    <a href="mailto:{{ $site->email }}">{{ $site->email }}</a>
                 </p>
             </div>
             <div class="col-6  text-center">
@@ -72,7 +82,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
    </main>

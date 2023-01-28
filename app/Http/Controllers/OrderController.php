@@ -28,7 +28,7 @@ class OrderController extends Controller
         }
         // On sait ici que le custormer existe
         if(Auth::user()->role_id === 3){
-            return view('orderTwo',compact('spaceId'));
+            return view('orderTwo',compact('space_id'));
         }
     }
     public function order_three()
