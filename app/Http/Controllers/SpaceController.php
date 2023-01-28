@@ -35,7 +35,7 @@ class SpaceController extends Controller
         ->first();
         $site = Site::Where('enabled', 1)->Where('id', $SiteId)->first();
         $options = Option::all();
-        $optionsExists = OptionSpace::where('space_id', $id)->where('available', 1);
-        return view('space/show',compact('space','site','options'));
+        $optionsExists = OptionSpace::where('space_id', $id)->where('available', 1)->get();
+        return view('space/show',compact('space','site','options','optionsExists'));
     }
 }
