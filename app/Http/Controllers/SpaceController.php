@@ -31,7 +31,7 @@ class SpaceController extends Controller
 
     public function showGuest($SiteId, $id){
         $space = Space::where('spaces.enabled', 1)->where('spaces.id', $id)
-        ->prices
+        ->join('prices', 'spaces.price_id', '=', 'prices.id')
         ->first();
         $site = Site::Where('enabled', 1)->Where('id', $SiteId)->first();
         $options = Option::all();
