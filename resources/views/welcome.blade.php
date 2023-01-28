@@ -62,7 +62,7 @@
     <div class="card-group">
         <?php foreach ($spaces as &$space) { ?>
         <div class="card">
-          <img src="{{ $space->picture }}" class="card-img-top" alt="...">
+          <img src="storage/{{ $space->picture }}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ $space->nickname }}</h5>
             <p class="card-text">{{ $space->description }}</p>
@@ -97,7 +97,7 @@
         }).done(function (site) {
             var bounds = [];
             for ( var i=0; i < site.length; ++i ) {
-                thisMarker = L.marker( [site[i].lat, site[i].lon]).addTo( map ).bindPopup("<h3>"+site[i].adress+"</h3><p>"+site[i].description+"</p>"+'<img src="'+site[i].picture+'" class="img-thumbnail" alt="...">');
+                thisMarker = L.marker( [site[i].lat, site[i].lon]).addTo( map ).bindPopup("<h3>"+site[i].adress+"</h3><p>"+site[i].description+"</p>"+'<img src="storage/'+site[i].picture+'" class="img-thumbnail" alt="...">');
                 bounds.push([site[i].lat,site[i].lon]);
             }
             map.fitBounds(bounds,{padding: [20,20]});
