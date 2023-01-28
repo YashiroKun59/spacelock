@@ -76,7 +76,13 @@
                             @foreach ($options as $option)
                             <tr>
                                 <td>{{ $option->name }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($optionsExists)
+
+                                    @else
+
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
