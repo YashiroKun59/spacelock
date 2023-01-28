@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,9 +15,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Optionspace extends Model
 {
+    use HasFactory, CrudTrait;
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'option_space';
