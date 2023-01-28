@@ -24,13 +24,13 @@ class SpaceController extends Controller
         ->where('enabled',1)
         ->get();
         $currentSite = $SiteId;
-        return view('space/index',compact('spacesOnSite','allsite','currentSite'));
+        return view('catalog.index',compact('spacesOnSite','allsite','currentSite'));
     }
 
     public function showGuest($SiteId, $id){
         $space = Space::where('spaces.enabled', 1)->where('spaces.id', $id)
         ->join('prices', 'spaces.id', '=', 'prices.id')
         ->first();
-        return view('space/show',compact('space'));
+        return view('catalog.show',compact('space'));
     }
 }
