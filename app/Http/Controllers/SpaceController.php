@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use App\Models\Space;
 use Illuminate\Http\Request;
 //use Illuminate\View\View;
@@ -19,7 +20,11 @@ class SpaceController extends Controller
         }else{
             $spacesOnSite = Space::Where('enabled', 1)->Where('site_id', $SiteId)->get();
         }
-        return View('space/index',compact('spacesOnSite'));
+        $allsite=Site::select('id','city')
+        ->where('enabled',1)
+        ->get();
+        $currentSite = $SiteId;
+        return View('space/index',compact('spacesOnSite','allsite','currentSite'));
     }
 
     public function showGuest($SiteId, $id){
