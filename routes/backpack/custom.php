@@ -19,8 +19,6 @@ Route::group([
     Route::crud('pages', 'PagesCrudController');
     Route::crud('sliders', 'SlidersCrudController');
     Route::crud('logs', 'LogsCrudController');
-    Route::crud('customers', 'CustomersCrudController');
-    Route::crud('managers', 'ManagersCrudController');
     Route::crud('prices', 'PricesCrudController');
     Route::crud('options', 'OptionsCrudController');
     Route::crud('spacetypes', 'SpacetypesCrudController');
@@ -31,4 +29,5 @@ Route::group([
     Route::crud('payements', 'PayementsCrudController');
     Route::crud('supports', 'SupportsCrudController');
     Route::crud('configs', 'ConfigsCrudController');
+    Route::crud('user', 'UserCrudController');
 }); // this should be the absolute last line of this file
