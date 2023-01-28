@@ -24,7 +24,7 @@ class SpaceController extends Controller
         ->where('enabled',1)
         ->get();
         $currentSite = $SiteId;
-        return View('space/index',compact('spacesOnSite','allsite','currentSite'));
+        return view('space/index',compact('spacesOnSite','allsite','currentSite'));
     }
 
     public function showGuest($SiteId, $id){

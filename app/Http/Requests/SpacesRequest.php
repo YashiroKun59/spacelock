@@ -25,7 +25,11 @@ class SpacesRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'upload.*' => [
+                'nullable',
+                'max:2048', // file size in KB
+                'mimetypes:jpeg,png,jpg', // allow only some mimetypes
+            ],
         ];
     }
 

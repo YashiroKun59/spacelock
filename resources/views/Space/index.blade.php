@@ -10,8 +10,6 @@
             @foreach ( $allsite as $site )
             <option value="{{$site->id}}" @if ($site->id==$currentSite)
                 selected
-            @else
-
             @endif>{{$site->city}} </option>
 
             @endforeach
