@@ -19,7 +19,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'lastname'=> fake()->lastName(),
+            'name'=> fake()->lastName(),
             'firstname'=> fake()->firstName(),
             'address'=> fake()->address(),
             'zipcode'=> fake()->numberBetween(1000,9999),
