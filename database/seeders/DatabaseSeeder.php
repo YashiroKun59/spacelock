@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             ConfigSeeder::class,
             RoleSeeder::class,
             OptionSeeder::class,
+            UserSeeder::class,
         ]);
         // # run the rest of the seeders
         User::factory(100)->create();
