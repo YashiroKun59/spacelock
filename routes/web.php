@@ -35,10 +35,10 @@ Route::controller(SpaceController::class)->group(function(){
 });
 
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/space/orderTwo','order_two')->name('orderTwo');
-    Route::get('/space/orderThree','order_three')->name('orderThree');
-    Route::get('/space/orderFour','order_four')->name('orderFour');
-    Route::get('/space/orderFive','order_five')->name('orderFive');
+    Route::post('/space/orderTwo','order_two')->name('orderTwo');
+    Route::post('/space/orderThree','order_three')->name('orderThree');
+    Route::post('/space/orderFour','order_four')->name('orderFour');
+    Route::post('/space/orderFive','order_five')->name('orderFive');
 });
 
 Route::controller(SiteController::class)->group(function(){

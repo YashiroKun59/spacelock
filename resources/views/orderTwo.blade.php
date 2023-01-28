@@ -1,7 +1,7 @@
 @extends('layouts.default')
-@section('title') Taper ici le title de la page @endsection
-@section('description') Taper ici la description @endsection
-@section('keywords') Taper ici les mots-clés @endsection
+@section('title') OrderTwo @endsection
+@section('description') Second page of the ordering process @endsection
+@section('keywords') OrderTwo @endsection
 @section('canonical'){{ URL::current() }}@endsection
 @section('content')
 
@@ -12,11 +12,12 @@
         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
     </div>
 </div>
-<!--Si aucun utilisateur est connecté-->
-@if (!Auth::check())
+
+<!--Si aucun utilisateur est connecté
+
 
 <form method="POST" action="route('register')">
-    @csrf
+
     <div class = "container">
         <div class = "row">
             <div class = "col-6">
@@ -53,11 +54,11 @@
         </div>
     </div>
 </form>
-@endif
 
+-->
 <!--Si un utilisateur est connecté-->
-@if (Auth::check())
-        <form method="POST" action="route('register')">
+
+        <form method="POST" action="{{}}">
             @csrf
             <div class = "container">
                 <div class = "row">
@@ -84,23 +85,27 @@
                     <div class ="col-3">
                     </div>
                     <div class ="col-1">
-                        <button class="btn btn-primary" href = "{{ route('orderThree', [$space_id->id]) }}">
+                        <button class="btn btn-primary" href ="{{ route('orderThree')}}">
                             Suivant
                         </button>
                     </div>
                 </div>
             </div>
         </form>
-        @endif
+
         <br>
         <div class ="container">
-            <div class ="row">
+            <div>
                 <div class ="col-3">
                 </div>
                 <div class ="col-2">
-                    <div class ="btn btn-primary">
-                        Un problème ?
-                    </div>
+                    <form method="POST" action="route('register')">
+                        @csrf
+                        <input type="hidden" name="spaceId" value="{{request('spaceId')}}">
+                        <button class ="btn btn-primary" href = "{{ route('contact')}}">
+                            Un problème ?
+                        </div>
+                    <form>
                 </div>
             </div>
         </div>
