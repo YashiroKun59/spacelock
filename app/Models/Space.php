@@ -73,4 +73,12 @@ class Space extends Model
     {
         return $this->belongsTo('App\Models\Price');
     }
+    public function setPictureAttribute($value)
+    {
+        $attribute_name = "picture";
+        $disk = "public";
+        $destination_path = "images/spaces";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    }
 }

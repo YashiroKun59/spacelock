@@ -71,7 +71,13 @@ class SpacesCrudController extends CrudController
 
         CRUD::field('nickname');
         CRUD::field('description');
-        CRUD::field('picture');
+        $this->crud->addField([
+            'name' => 'picture',
+            'label' => 'picture',
+            'type' => 'upload',
+            'upload' => true,
+            'disk'=>'public'
+        ]);
         CRUD::field('length');
         CRUD::field('width');
         CRUD::field('height');
