@@ -48,12 +48,4 @@ class Site extends Model
     {
         return $this->hasMany('App\Models\Space');
     }
-    public function setPictureAttribute($value)
-{
-    $attribute_name = "picture";
-    $disk = "public";
-    $destination_path = "images/site";
-
-    $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
-}
 }
