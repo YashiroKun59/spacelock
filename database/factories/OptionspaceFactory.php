@@ -19,10 +19,10 @@ class OptionspaceFactory extends Factory
     public function definition()
     {
         $option_id = Option::all()->random();
-        $space_id = Space::all()->random();
+        $space_id = Space::all()->count();
         return [
             'option_id' => $option_id,
-            'space_id' => $space_id,
+            'space_id' => fake()->unique()->numberBetween(1,$space_id),
             'available' => 1,
         ];
     }

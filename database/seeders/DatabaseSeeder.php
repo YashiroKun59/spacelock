@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
         error_log('Seeding Rental done');
         Support::factory(100)->create();
         error_log('Seeding Support done');
-        Optionspace::factory(200);
+        Optionspace::factory(20)->create();
         error_log('Seeding Option done');
     }
 }
