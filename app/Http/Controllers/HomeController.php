@@ -10,6 +10,8 @@ use App\Mail\ContactMailable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Log;
+use App\Models\Payement;
+use App\Models\Support;
 
 class HomeController extends Controller
 {
@@ -82,5 +84,50 @@ class HomeController extends Controller
         Mail::to("example@domain.com")->send(new ContactMailable( $email, $nom, $prenom, $question));
 
         return view('contact')->with('successMsg','Message envoyé');
+    }
+    public function support()
+    {
+        $rentId = request('rentId');
+        $user = User::all()->where('id', '=', Auth::user()->id)->first();
+        $rental = User::all()->where('id', '=', $rentId)->first();
+        $payements = Payement::all()->where('rental_id', '=', $rentId);
+
+        Log::debug('rental id:'.$rentId);
+        Log::debug($payements);
+        Log::debug(empty($rental));
+
+        if($payements->isEmpty()) {
+            return view('support')->with('errorMsg','Veuillez finaliser votre paiement');
+        }
+        else {
+            return view('support');
+        }
+    }
+
+    public function submit_support()
+    {
+        $rentId = request('rentId');
+        $question = request('question');
+        $user = User::all()->where('id', '=', Auth::user()->id)->first();
+        $rental = User::all()->where('id', '=', $rentId)->first();
+        $payements = Payement::all()->where('rental_id', '=', $rentId);
+
+        if($payements->isEmpty()) {
+            return view('support')->with('errorMsg','Veuillez finaliser votre paiement');
+        }
+        else {
+            $newSupport = new Support;
+            $newSupport->user_id = $user->id;
+            $newSupport->status = 1;
+            $newSupport->rental_id = $rentId;
+            $newSupport->number = time();
+            $newSupport->message = $question;
+            $newSupport->from_manager = 0;
+            $newSupport->enabled = 1;
+
+            $newSupport->save();
+
+            return view('support')->with('successMsg','Message envoyé');
+        }
     }
 }
