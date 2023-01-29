@@ -26,7 +26,7 @@ class SpaceController extends Controller
         ->where('enabled',1)
         ->get();
         $currentSite = $SiteId;
-        return view('space/index',compact('spacesOnSite','allsite','currentSite'));
+        return view('Space/index',compact('spacesOnSite','allsite','currentSite'));
     }
 
     public function showGuest($SiteId, $id){
@@ -36,6 +36,6 @@ class SpaceController extends Controller
         $site = Site::Where('enabled', 1)->Where('id', $SiteId)->first();
         $options = Option::all();
         $optionsExists = OptionSpace::where('space_id', $id)->where('available', 1)->get();
-        return view('space/show',compact('space','site','options','optionsExists'));
+        return view('Space/show',compact('space','site','options','optionsExists'));
     }
 }
