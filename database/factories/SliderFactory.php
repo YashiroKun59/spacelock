@@ -16,14 +16,15 @@ class SliderFactory extends Factory
      */
     public function definition()
     {
+
         return [
             'title' => fake()->realText(40),
             'subtitle' => fake()->realText(60),
             'media' => fake()->imageUrl(640,480,null,true),
             'uri' => fake()->url(),
             'timelaps' => fake()->boolean(50),
-            'start_at' => fake()->date('Y-m-d'),
-            'end_at' => fake()->date('Y-m-d','now'),
+            'start_at' => fake()->dateTimeBetween('-2 week','+1 week'),
+            'end_at' => fake()->dateTimeBetween('+2 week','+3 week'),
             'enabled' => fake()->boolean(50),
             //
         ];

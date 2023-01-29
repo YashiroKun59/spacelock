@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         error_log('Seeding Price done');
         Spacetype::factory(20)->create();
         error_log('Seeding Spacetype done');
-        Slider::factory(100)->create();
+        Slider::factory(20)->create();
         error_log('Seeding Slider done');
         Site::factory(10)->create();
         error_log('Seeding Site done');

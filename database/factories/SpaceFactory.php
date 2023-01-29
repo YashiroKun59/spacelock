@@ -24,7 +24,7 @@ class SpaceFactory extends Factory
 
             'nickname'=>fake()->name(),
             'description'=>fake()->text(120),
-            'picture'=>'/'.fake()->uuid().'.jpg',
+            'picture'=> fake()->imageUrl(400,400),
             'length'=>fake()->numberBetween(100,800),
             'width'=>fake()->numberBetween(100,800),
             'height'=>fake()->numberBetween(100,800),
