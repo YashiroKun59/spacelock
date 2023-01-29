@@ -62,7 +62,7 @@
     <div class="card-group">
         <?php foreach ($spaces as &$space) { ?>
         <div class="card">
-          <img src="storage/{{ $space->picture }}" class="card-img-top" alt="...">
+          <img src="{{ $space->picture }}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ $space->nickname }}</h5>
             <p class="card-text">{{ $space->description }}</p>
