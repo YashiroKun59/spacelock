@@ -6,6 +6,10 @@ use App\Models\Rental;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\ContactMailable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -62,5 +66,21 @@ class HomeController extends Controller
         $rentals = Rental::all()->where('user_id', '=', Auth::user()->id);
 
         return view('myspace/locations',compact('rentals'));
+    }
+    public function homecontact()
+    {
+        return view('contact');
+    }
+    public function submit_homecontact()
+    {
+        $email = request('email');
+        $nom = request('nom');
+        $prenom = request('prenom');
+        $question = request('question');
+
+        //Mail to should be same as from with same domain as postmark account because this is a trial account
+        Mail::to("example@domain.com")->send(new ContactMailable( $email, $nom, $prenom, $question));
+
+        return view('contact')->with('successMsg','Message envoyé');
     }
 }
