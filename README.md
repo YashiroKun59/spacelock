@@ -18,7 +18,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 ```
 
 ## Postmark configuration
-1. Créer un compte gratuit sur https://postmarkapp.com avec votre adresse email pro (personnalisée) example@mon-domaine.com
+1. Créer un compte gratuit sur https://postmarkapp.com avec votre adresse email pro (personnalisée) comptepostmark@domaine.com
 
 2. Accéder à votre serveur depuis https://account.postmarkapp.com/servers
 
@@ -29,8 +29,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 5. Changer dans votre fichier .env la clé MAIL_MAILER
 >MAIL_MAILER=postmark
 
-6. Changer to et from des envoi email à votre compte postmark
->Mail::to("**example@mon-domaine.com**")->send(new ContactMailable( $email, $nom, $prenom, $question));
+6. Changer to et from des envoi email à votre compte postmark : du example@domain.com vers comptepostmark@domaine.com
+>Mail::to("**comptepostmark@domaine.com**")->send(new ContactMailable( $email, $nom, $prenom, $question));
 >...
->from: new Address('**example@mon-domaine.com**', 'Contact'),
+
+>from: new Address('**comptepostmark@domaine.com**', 'Contact'),
 >...
