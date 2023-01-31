@@ -33,6 +33,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/homecontact', 'submit_homecontact')->name('submit_homecontact');
     Route::get('/support', 'support')->name('support');
     Route::post('/support', 'submit_support')->name('submit_support');
+    Route::get('/supportlist', 'supportlist')->name('supportlist');
+    Route::post('/supportlistsubmit', 'supportlistsubmit')->name('supportlistsubmit');
 });
 
 Route::controller(SpaceController::class)->group(function(){

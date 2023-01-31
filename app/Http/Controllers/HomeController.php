@@ -128,4 +128,27 @@ class HomeController extends Controller
             return view('support')->with('successMsg','Message envoyé');
         }
     }
+
+    public function supportlist()
+    {
+        $supports = Support::all()->where('status', '=', 1);
+        return view('support-list',compact('supports'));
+    }
+
+    public function supportlistsubmit()
+    {
+        $supportId = request('supportId');
+        $reponse = request('reponse');
+        $support = Support::all()->where('id', '=', $supportId)->first();
+
+        Mail::to($support->user->email)->send(new ContactMailable( $support->user->email, $support->user->name, $support->user->firstname, $reponse));
+
+        $support->from_manager = Auth::user()->id;
+        $support->status = 2;
+        $support->save();
+
+        $successMsg = 'Réponse envoyé';
+
+        return redirect('/supportlist');
+    }
 }
