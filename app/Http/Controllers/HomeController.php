@@ -89,12 +89,10 @@ class HomeController extends Controller
     {
         $rentId = request('rentId');
         $user = User::all()->where('id', '=', Auth::user()->id)->first();
-        $rental = User::all()->where('id', '=', $rentId)->first();
+        $rental = Rental::all()->where('id', '=', $rentId)->first();
         $payements = Payement::all()->where('rental_id', '=', $rentId);
 
-        Log::debug('rental id:'.$rentId);
-        Log::debug($payements);
-        Log::debug(empty($rental));
+        #Log::debug('rental id:'.$rentId);
 
         if($payements->isEmpty()) {
             return view('support')->with('errorMsg','Veuillez finaliser votre paiement');
@@ -109,7 +107,7 @@ class HomeController extends Controller
         $rentId = request('rentId');
         $question = request('question');
         $user = User::all()->where('id', '=', Auth::user()->id)->first();
-        $rental = User::all()->where('id', '=', $rentId)->first();
+        $rental = Rental::all()->where('id', '=', $rentId)->first();
         $payements = Payement::all()->where('rental_id', '=', $rentId);
 
         if($payements->isEmpty()) {
