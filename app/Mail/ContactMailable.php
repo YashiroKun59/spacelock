@@ -48,7 +48,7 @@ class ContactMailable extends Mailable
     {
         return new Envelope(
             //Mail from should be same as to with same domain as postmark account because this is a trial account
-            from: new Address('example@domain.com', 'Contact'),
+            from: new Address(env('POSTMARK_ACCOUNT'), 'Contact'),
             subject: 'Question',
         );
     }

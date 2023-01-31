@@ -81,7 +81,7 @@ class HomeController extends Controller
         $question = request('question');
 
         //Mail to should be same as from with same domain as postmark account because this is a trial account
-        Mail::to("example@domain.com")->send(new ContactMailable( $email, $nom, $prenom, $question));
+        Mail::to(env('POSTMARK_ACCOUNT'))->send(new ContactMailable( $email, $nom, $prenom, $question));
 
         return view('contact')->with('successMsg','Message envoyé');
     }

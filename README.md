@@ -24,14 +24,11 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 3. Générer votre token dans la section API Tokens > Server API tokens
 
-4. Metter le token dans votre fichier .env
+4. Mettre le token dans votre fichier .env (voire .env.example.mail)
 >POSTMARK_TOKEN=XXX-XXXX-XXX-XXXX-XXXXXXXXX
-5. Changer dans votre fichier .env la clé MAIL_MAILER
+
+5. Changer dans votre fichier .env la clé MAIL_MAILER (voire .env.example.mail)
 >MAIL_MAILER=postmark
 
-6. Changer to et from des envoi email à votre compte postmark : du example@domain.com vers comptepostmark@domaine.com
->Mail::to("**comptepostmark@domaine.com**")->send(new ContactMailable( $email, $nom, $prenom, $question));
->...
-
->from: new Address('**comptepostmark@domaine.com**', 'Contact'),
->...
+6. Changer dans votre fichier .env la clé POSTMARK_ACCOUNT (voire .env.example.mail)
+>POSTMARK_ACCOUNT=comptepostmark@domaine.com
